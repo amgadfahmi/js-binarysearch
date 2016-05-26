@@ -43,6 +43,8 @@ Download the project and double click the dist/test.html
 4. By default the test runs againts numeric, string and object arrays. If you want to perform only one of these or combination, check/unckeck the boxes. 
 5. You can click on the chart different legend items to show/hide lines. 
 
+Perform test by yourself from [here](http://bit.ly/binaryvslinear)
+
 ## API
 The liberary can be used to search array of numbers, strings and objects. All what is needed to take new instance from the BS class passing the array you want to search in the constructor. 
 The search function has 2 overloads:
