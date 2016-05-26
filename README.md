@@ -1,25 +1,58 @@
-# js-binarysearch
+# JS-BinarySearch
 
-[![Build Status](https://secure.travis-ci.org/amgadfahmi/js-binarysearch.png?branch=master)](http://travis-ci.org/amgadfahmi/js-binarysearch)
 
 Binary search algorithm implementation in Javascript without any dependency.
 
+![alt text](https://amgadfahmi.files.wordpress.com/2016/05/binarysearch1.jpg "Javascript Binary Search")
+
+
 ## Installation
 
+You can install the package using NPM 
 ```
 $ npm install --save-dev js-binarysearch
 ```
+Using bower
+```
+$ bower install --save js-binarysearch
+```
 
 ## Usage
+The liberary can be used to search any numeric, string and object sorted array
+```javascript
+var arrNum = [];
+for (var i = 0; i < 10000; i++) {
+    arrNum.push(i + 1);
+}
+var result = new BS(arrNum).search(9999);
+console.log(result) //9999
+```
 
-coming soon....
+## Comparison with Linear search 
+Knowing when to use any of both algorithms is important, as its known that binary search is faster in small array size. The strength of binary search comes with huge data. I have created a small test page to show the execution difference between binary vs linear.
+> Please not this is assuming its a sorted array and the item we are looking for is the last one. 
 
-## Documentation
+![alt text](https://amgadfahmi.files.wordpress.com/2016/05/screenshot-19.png "Binary Search vs Linear Search")
 
-coming soon....
+```
+Download the project and double click the dist/test.html 
+```
+1. The page let you control the size of the array (iterations = array size)
+2. Every refresh click will perform 2 search commands (linear & binary) and keep the execution time in global array in order to display it later on the chart. 
+3. The loop button will perform a complete test (As refresh button was clicked) every 3 seconds (click one more time to stop the loop)
+4. By default the test runs againts numeric, string and object arrays. If you want to perform only one of these or combination, check/unckeck the boxes. 
+5. You can click on the chart different legend items to show/hide lines. 
 
 ## API
-
+The liberary can be used to search array of numbers, strings and objects. All what is needed to take new instance from the BS class passing the array you want to search in the constructor. 
+The search function has 2 overloads:
+1. The target value in case of numeric and string arrays 
+2. Value and key in case of the object as following:
+```javascript
+new BS(arrObj).search('20380a36-8777-43f7-a79e-65bdb53f4621', 'guid');
+```
+## Roadmap 
+Add sort feature for any kind of array...
 ## License
 
 The MIT License (MIT)

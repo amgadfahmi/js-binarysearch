@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<title>Linear search vs Binary search using Javascript</title>
+<head>
+	<script src="https://code.jquery.com/jquery-1.12.4.min.js"
+              integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ="
+              crossorigin="anonymous"></script>
+    <script type="text/javascript" src="jquery.canvasjs.min.js"></script>           
+    <script src="../lib/js-binarysearch.js" type="text/javascript" charset="utf-8" ></script>
+    <script type="text/javascript" src="main.js"></script>          	
+	<script  type="text/javascript">
+     
+     var chartBinaryNum= [];
+     var chartLinearNum = [];
+    var chartBinaryStr= [];
+     var chartLinearStr = [];    
+     var chartBinaryObj= [];
+     var chartLinearObj = [];
+        
+     var loopActive = false ;
+     $(document).ready(function() {
+
+         var iterations = 10000;
+         $('#iterations').val(iterations);
+         $('.count').text(iterations);
+         // test(iterations);
+         loadChart(iterations);
+     });
+
+
+	</script>
+</head>
+<body>
+
+
+<h2>Binary Search</h2>
+<h4>Number[] execution time: <span style="color:green" id="number"></span> for <span class="count" style="color:blue"></span> object</h4>
+<h4>String[] execution time: <span style="color:green" id="string"></span> for <span class="count" style="color:blue"></span> object</h4>
+<h4>Object[] execution time: <span style="color:green" id="object"></span> for <span class="count" style="color:blue"></span> object</h4>
+
+<h2>Linear Search</h2>
+<h4>Number[] execution time: <span style="color:green" id="number2"></span> for <span class="count" style="color:blue"></span> object</h4>
+<h4>String[] execution time: <span style="color:green" id="string2"></span> for <span class="count" style="color:blue"></span> object</h4>
+<h4>Object[] execution time: <span style="color:green" id="object2"></span> for <span class="count" style="color:blue"></span> object</h4>
+
+<label>Iterations<input type="text" id="iterations"></label> <button  onclick="test()">Refresh</button><button  onclick="toggle()">Loop(toggle)</button><button  onclick="reset()">Reset</button>
+<input type="checkbox" id="chbxNumber" checked="true">Number</input>
+<input type="checkbox" id="chbxString" checked="checked">String</input>
+<input type="checkbox" id="chbxObject" checked="checked">Object</input>
+
+<div id="chartContainer" style="height: 300px; width: 100%;"></div>
+</body>
+</html>
