@@ -68,7 +68,16 @@ for (var i = 0; i &lt; 10000; i++) {
 }
 var result = new BS(arrNum).search(9999);
 console.log(result) //9999
-</code></p>
+</code>
+Node example <br>
+
+<code>
+var BS = require("js-binarysearch");
+var result = new BS([22,3,55,987,67]).sort().search(55);
+console.log(result) //output is 55
+</code>
+
+</p>
 
 
 <h3><a  class="anchor"  aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span>Comparison with Linear search</a></h3>
