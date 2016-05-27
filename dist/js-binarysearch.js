@@ -1,5 +1,5 @@
 /*! js-binarysearch - v1.0.0
- *  Release on: 2016-05-26
+ *  Release on: 2016-05-27
  *  Copyright (c) 2016 Amgad Fahmi
  *  Licensed MIT */
 (function (root, factory) {
@@ -20,16 +20,19 @@
 
 'use strict';
 
-var BS = function (array) {
+var BS = function(array) {
     if (array) {
         this.internalArray = array;
     } else {
         throw new error('Object is not defined');
     }
+    return this;
 };
 
+
+
 BS.prototype.search = function(target, key) {
-    if (key) {
+    if (key && typeof key === 'string') {
         return this.searchObj(target, key);
     } else if (typeof target === 'number') {
         return this.searchNum(target);
@@ -39,8 +42,8 @@ BS.prototype.search = function(target, key) {
 };
 
 BS.prototype.searchNum = function(target) {
-    var min = this.internalArray[0],
-        max = this.internalArray[this.internalArray.length - 1],
+    var min = 0,
+        max = this.internalArray.length - 1,
         mid;
     while (min <= max) {
         mid = Math.round(min + (max - min) / 2);
@@ -88,5 +91,32 @@ BS.prototype.searchObj = function(target, key) {
     }
 };
 
+
+BS.prototype.sort = function(key) {
+    if (this.internalArray.length <= 1) {
+        return;
+    }
+    if (key && typeof key === 'string') {
+        this.sortObj(key);
+        return this;
+    } else {
+        this.internalArray.sort();
+        return this;
+    }
+};
+
+BS.prototype.sortObj = function(key) {
+    var isString = typeof this.internalArray[0][key] === 'string';
+    if (isString) {
+        this.internalArray.sort(function(a, b) {
+            return a[key].localeCompare(b[key]);
+        });
+    } else {
+        this.internalArray.sort(function(a, b) {
+            return a[key] - b[key];
+        });
+    }
+
+};
 
 }));
