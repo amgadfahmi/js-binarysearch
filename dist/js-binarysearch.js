@@ -1,23 +1,21 @@
-/*! js-binarysearch - v1.0.0
+/*! js-binarysearch - v1.0.1
  *  Release on: 2016-05-27
  *  Copyright (c) 2016 Amgad Fahmi
  *  Licensed MIT */
-(function (root, factory) {
-  if (typeof define === 'function' && define.amd) {
-    // AMD. Register as an anonymous module unless amdModuleId is set
-    define([], function () {
-      return (factory());
-    });
-  } else if (typeof exports === 'object') {
-    // Node. Does not work with strict CommonJS, but
-    // only CommonJS-like environments that support module.exports,
-    // like Node.
-    module.exports = factory();
-  } else {
-    factory();
-  }
-}(this, function () {
-
+(function(root, factory) {
+    if(typeof exports === 'object') {
+        module.exports = factory(require, exports, module);
+    }
+    else if(typeof define === 'function' && define.amd) {
+        define(['require', 'exports', 'module'], factory);
+    }
+    else {
+        var req = function(id) {return root[id];},
+            exp = root,
+            mod = {exports: exp};
+        root['BS'] = factory(req, exp, mod);
+    }
+}(this, function(require, exports, module) {
 'use strict';
 
 var BS = function(array) {
@@ -28,8 +26,6 @@ var BS = function(array) {
     }
     return this;
 };
-
-
 
 BS.prototype.search = function(target, key) {
     if (key && typeof key === 'string') {
@@ -79,7 +75,6 @@ BS.prototype.searchObj = function(target, key) {
         temp, mid;
     while (min <= max) {
         mid = Math.round(min + (max - min) / 2);
-        // temp =   this.internalArray[mid][key] ; 
         temp = this.internalArray[mid] ? this.internalArray[mid][key] : undefined;
         if (temp === target) {
             return this.internalArray[mid];
@@ -96,8 +91,13 @@ BS.prototype.sort = function(key) {
     if (this.internalArray.length <= 1) {
         return;
     }
-    if (key && typeof key === 'string') {
+    var isObject = key && typeof key === 'string';
+    var isNumber = typeof this.internalArray[0] === 'number';
+    if (isObject) {
         this.sortObj(key);
+        return this;
+    } else if (isNumber) {
+        this.sortNum();
         return this;
     } else {
         this.internalArray.sort();
@@ -116,7 +116,12 @@ BS.prototype.sortObj = function(key) {
             return a[key] - b[key];
         });
     }
-
 };
 
+BS.prototype.sortNum = function() {
+    this.internalArray.sort(function(a, b) {
+        return a - b;
+    });
+};
+return BS;
 }));

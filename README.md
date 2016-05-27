@@ -27,6 +27,12 @@ for (var i = 0; i < 10000; i++) {
 var result = new BS(arrNum).search(9999);
 console.log(result) //output is 9999
 ```
+Node example 
+```javascript
+var BS = require("js-binarysearch");
+var result = new BS([22,3,55,987,67]).sort().search(55);
+console.log(result) //output is 55
+```
 
 ## Comparison with Linear search 
 Knowing when to use any of both algorithms is important, as its known that binary search is faster in small array size. The strength of binary search comes with huge data. I have created a small test page to show the execution difference between binary vs linear.

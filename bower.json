@@ -1,6 +1,6 @@
 {
     "name": "js-binarysearch",
-    "version": "1.0.1",
+    "version": "1.0.2",
     "description": "Binary search algorithm implementation in Javascript without any dependency.",
     "main": "dist/js-binarysearch.js",
     "author": {
