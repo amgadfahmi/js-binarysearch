@@ -25,7 +25,7 @@ for (var i = 0; i < 10000; i++) {
     arrNum.push(i + 1);
 }
 var result = new BS(arrNum).search(9999);
-console.log(result) //9999
+console.log(result) //output is 9999
 ```
 
 ## Comparison with Linear search 
@@ -53,8 +53,16 @@ The search function has 2 overloads:
 ```javascript
 new BS(arrObj).search('20380a36-8777-43f7-a79e-65bdb53f4621', 'guid');
 ```
-## Roadmap 
-Add sort feature for any kind of array...
+## Sorting 
+Now you can sort the array in chaining mechanism. 
+```javascript
+new BS([3,1,66,33,890,24]).sort().search(66); //output is 66 
+//or 
+var arr = [{id:33, name:'Jasmin'},{id:12, name:'David'},{id:7, name:'Amgad'},{id:56, name:'Katya'}];
+new BS(arr).sort('id').search(7,'id'); //output is {id:7, name:'Amgad'}
+new BS(arr).sort('name').search('Katya','name'); //output is {id:56, name:'Katya'}
+
+```
 ## License
 
 The MIT License (MIT)
