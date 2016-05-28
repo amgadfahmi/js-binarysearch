@@ -1,6 +1,6 @@
 module.exports = {
     coveralls: {
-        src: 'coverage/**/*.info',
+        src: 'test/**/*.info',
         options: {
             force: false
         }

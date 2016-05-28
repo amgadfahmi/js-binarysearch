@@ -42,10 +42,10 @@ module.exports = function(config) {
 
 
         coverageReporter: {
-            dir: 'coverage',
+            dir: 'test',
             reporters: [{
                 type: "html",
-                dir: "/coverage/html"
+                dir: "/test/html"
             }, {
                 type: "lcov",
                 file: "result.info"
