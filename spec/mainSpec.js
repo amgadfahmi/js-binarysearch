@@ -8,6 +8,21 @@ define(['BS'], function(BS) {
             expect(bs.length).toBe(2);
         });
     });
+   
+    describe("Initialize", function() {
+        it("wrong contructor", function() {
+            expect(function(){
+             new BS();   
+            }).toThrow();
+        });
+    });
+
+    describe("Sort", function() {
+        it("numbers", function() {
+            var bs = new BS([4]).sort();
+            expect(bs).toEqual(undefined);
+        });
+    });
 
     describe("Sort", function() {
         it("numbers", function() {
@@ -37,21 +52,21 @@ define(['BS'], function(BS) {
 
     describe("Search", function() {
         it("numbers", function() {
-            var bs = new BS([41, 3, 2, 4]).sort().search(3);
-            expect(bs).toEqual(3);
+            var bs = new BS([41, 33, 1 , 15,7]).sort().search(33);
+            expect(bs).toEqual(33);
         });
     });
 
     describe("Search", function() {
         it("strings", function() {
-            var bs = new BS(["Banana", "Orange", "Apple", "Mango"]).sort().search("Mango");
+            var bs = new BS(["Banana", "Orange", "Kiwi","Apple", "Mango"]).sort().search("Mango");
             expect(bs).toEqual("Mango");
         });
     });
   
     describe("Search", function() {
         it("objects by id", function() {
-          var arr = [{id:33, name:'Jasmin'},{id:12, name:'David'},{id:7, name:'Amgad'},{id:56, name:'Katya'}];
+          var arr = [{id:99, name:'Karin'},{id:33, name:'Jasmin'},{id:12, name:'David'},{id:7, name:'Amgad'},{id:56, name:'Katya'}];
             var bs = new BS(arr).sort('id').search(33,'id');
             expect(bs).toEqual({id:33, name:'Jasmin'});
         });
