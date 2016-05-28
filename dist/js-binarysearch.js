@@ -1,5 +1,5 @@
 /*! js-binarysearch - v1.0.2
- *  Release on: 2016-05-28
+ *  Release on: 2016-05-29
  *  Copyright (c) 2016 Amgad Fahmi
  *  Licensed MIT */
 (function(root, factory) {
