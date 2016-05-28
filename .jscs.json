@@ -59,19 +59,17 @@
 
   "requireKeywordsOnNewLine": [
     "catch",
-    "while",
-    "else"
+    "while"
   ],
 
   "requireSpacesInFunctionExpression": {
-    "beforeOpeningRoundBrace": true,
+
     "beforeOpeningCurlyBrace": true
   },
 
   "requireParenthesesAroundIIFE": true,
   "requireCommaBeforeLineBreak": true,
   "requireCamelCaseOrUpperCaseIdentifiers": true,
-  "requireCapitalizedConstructors": true,
   "requireDotNotation": true,
 
   "requireSpaceBeforeBinaryOperators": [
@@ -144,7 +142,7 @@
   "disallowMixedSpacesAndTabs": "smart",
   "safeContextKeyword": "self",
 
-  "validateIndentation": 2,
+  "validateIndentation": 4,
 
   "requireSpaceAfterLineComment": true,
 

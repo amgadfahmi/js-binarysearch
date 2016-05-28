@@ -2,6 +2,7 @@ default:
   - build
 
 build:
+  - karma
   - clean
   - jshint:lib
   - jscs:lib

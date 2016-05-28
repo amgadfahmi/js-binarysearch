@@ -1,0 +1,70 @@
+console.log('Starting ...');
+
+define(['BS'], function(BS) {
+
+    describe("Initialize", function() {
+        it("instance", function() {
+            var bs = new BS([1, 2]).internalArray;
+            expect(bs.length).toBe(2);
+        });
+    });
+
+    describe("Sort", function() {
+        it("numbers", function() {
+            var bs = new BS([41, 3, 2, 4]).sort().internalArray;
+            expect(bs).toEqual([2, 3, 4, 41]);
+        });
+    });
+
+    describe("Sort", function() {
+        it("strings", function() {
+            var bs = new BS(["Banana", "Orange", "Apple", "Mango"]).sort().internalArray;
+            expect(bs).toEqual(["Apple","Banana","Mango","Orange"]);
+        });
+    });
+
+
+    describe("Sort", function() {
+        it("objects", function() {
+        	var arr = [{id:33, name:'Jasmin'},{id:12, name:'David'},{id:7, name:'Amgad'},{id:56, name:'Katya'}];
+            var bs = new BS(arr).sort('id').internalArray;
+            var check1 = bs[0].id  === 7;
+            var check2 = bs[bs.length -1 ].id === 56;
+            expect(check1 && check2).toBeTruthy();
+        });
+    });
+
+
+    describe("Search", function() {
+        it("numbers", function() {
+            var bs = new BS([41, 3, 2, 4]).sort().search(3);
+            expect(bs).toEqual(3);
+        });
+    });
+
+    describe("Search", function() {
+        it("strings", function() {
+            var bs = new BS(["Banana", "Orange", "Apple", "Mango"]).sort().search("Mango");
+            expect(bs).toEqual("Mango");
+        });
+    });
+  
+    describe("Search", function() {
+        it("objects by id", function() {
+          var arr = [{id:33, name:'Jasmin'},{id:12, name:'David'},{id:7, name:'Amgad'},{id:56, name:'Katya'}];
+            var bs = new BS(arr).sort('id').search(33,'id');
+            expect(bs).toEqual({id:33, name:'Jasmin'});
+        });
+    });
+
+
+    describe("Search", function() {
+        it("objects by name", function() {
+          var arr = [{id:33, name:'Jasmin'},{id:12, name:'David'},{id:7, name:'Amgad'},{id:56, name:'Katya'}];
+            var bs = new BS(arr).sort('name').search('Katya','name');
+            expect(bs).toEqual({id:56, name:'Katya'});
+        });
+    });
+
+});
+console.log('Test ended ...');

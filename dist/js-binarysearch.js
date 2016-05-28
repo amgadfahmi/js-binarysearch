@@ -1,5 +1,5 @@
-/*! js-binarysearch - v1.0.1
- *  Release on: 2016-05-27
+/*! js-binarysearch - v1.0.2
+ *  Release on: 2016-05-28
  *  Copyright (c) 2016 Amgad Fahmi
  *  Licensed MIT */
 (function(root, factory) {
@@ -16,6 +16,7 @@
         root['BS'] = factory(req, exp, mod);
     }
 }(this, function(require, exports, module) {
+/*global error */
 'use strict';
 
 var BS = function(array) {
@@ -86,7 +87,6 @@ BS.prototype.searchObj = function(target, key) {
     }
 };
 
-
 BS.prototype.sort = function(key) {
     if (this.internalArray.length <= 1) {
         return;
@@ -123,5 +123,6 @@ BS.prototype.sortNum = function() {
         return a - b;
     });
 };
+
 return BS;
 }));

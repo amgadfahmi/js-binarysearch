@@ -3,7 +3,8 @@ module.exports = function (grunt) {
   'use strict';
 
   require('time-grunt')(grunt);
-
+  grunt.loadNpmTasks('grunt-karma');
+  
   var config = {
     // Metadata.
     pkg: grunt.file.readJSON('package.json'),
