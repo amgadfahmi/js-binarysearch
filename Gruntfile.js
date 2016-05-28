@@ -4,6 +4,7 @@ module.exports = function (grunt) {
 
   require('time-grunt')(grunt);
   grunt.loadNpmTasks('grunt-karma');
+  grunt.loadNpmTasks('grunt-coveralls');
   
   var config = {
     // Metadata.

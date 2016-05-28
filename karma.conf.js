@@ -11,7 +11,7 @@ module.exports = function(config) {
 
         // frameworks to use
         // available frameworks: https://npmjs.org/browse/keyword/karma-adapter
-        frameworks: [ 'jasmine', 'requirejs'],
+        frameworks: ['jasmine', 'requirejs'],
 
 
         // list of files / patterns to load in the browser
@@ -25,19 +25,34 @@ module.exports = function(config) {
 
 
         // list of files to exclude
-        exclude: [
-        ],
+        exclude: [],
 
 
         // preprocess matching files before serving them to the browser
         // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
-        preprocessors: {},
+        preprocessors: {
+            "**/lib/*js": ["coverage"]
+        },
 
 
         // test results reporter to use
         // possible values: 'dots', 'progress'
         // available reporters: https://npmjs.org/browse/keyword/karma-reporter
-        reporters: ['dots'],
+        reporters: ['progress', 'coverage'],
+
+
+        coverageReporter: {
+            dir: 'coverage',
+            reporters: [{
+                type: "html",
+                dir: "/coverage/html"
+            }, {
+                type: "lcov",
+                file: "result.info"
+            }]
+        },
+
+
 
 
         // web server port
@@ -57,7 +72,7 @@ module.exports = function(config) {
         autoWatch: true,
 
         // plugins : ['karma-jasmine', 'karma-phantomjs-launcher'],
-        
+
         // start these browsers
         // available browser launchers: https://npmjs.org/browse/keyword/karma-launcher
         browsers: ['PhantomJS'],
