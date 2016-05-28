@@ -25,19 +25,28 @@ module.exports = function(config) {
 
 
         // list of files to exclude
-        exclude: [
-        ],
+        exclude: [],
 
 
         // preprocess matching files before serving them to the browser
         // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
-        preprocessors: {},
+        preprocessors: {
+            "**/lib/*js": ["coverage"]
+        },
 
 
         // test results reporter to use
         // possible values: 'dots', 'progress'
         // available reporters: https://npmjs.org/browse/keyword/karma-reporter
-        reporters: ['dots'],
+        reporters: ['dots','progress' , 'coverage'],
+
+
+        coverageReporter: {
+            type: "html",
+            dir: "coverage/"
+        },
+
+     
 
 
         // web server port
@@ -57,7 +66,7 @@ module.exports = function(config) {
         autoWatch: true,
 
         // plugins : ['karma-jasmine', 'karma-phantomjs-launcher'],
-        
+
         // start these browsers
         // available browser launchers: https://npmjs.org/browse/keyword/karma-launcher
         browsers: ['PhantomJS'],
