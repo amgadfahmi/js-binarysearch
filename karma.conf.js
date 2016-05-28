@@ -41,7 +41,7 @@ module.exports = function(config) {
         reporters: ['coverage'],
 
 
-        coverageReporter: [
+        coverageReporter: 
         // {
         //     type: 'html',
         //     subdir: '../.',
@@ -51,7 +51,7 @@ module.exports = function(config) {
             type: 'lcovonly',
             subdir: '../.',
             file: 'lcovonly.info'
-        }],
+        },
 
 
 

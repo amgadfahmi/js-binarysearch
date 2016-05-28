@@ -123,6 +123,5 @@ BS.prototype.sortNum = function() {
         return a - b;
     });
 };
-
 return BS;
 }));
