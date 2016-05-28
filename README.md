@@ -1,5 +1,5 @@
 # JS-BinarySearch 
-[![Build Status](https://travis-ci.org/amgadfahmi/js-binarysearch.svg?branch=master)](https://travis-ci.org/amgadfahmi/js-binarysearch)
+
 
 Binary search algorithm implementation in Javascript without any dependency.
 
