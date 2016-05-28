@@ -1,5 +1,5 @@
 # JS-BinarySearch 
-Master 1.0.2: [![Build Status](https://travis-ci.org/amgadfahmi/js-binarysearch.svg?branch=master)](https://travis-ci.org/amgadfahmi/js-binarysearch)&nbsp;[![Coverage Status](https://coveralls.io/repos/github/amgadfahmi/js-binarysearch/badge.png?branch=master)](https://coveralls.io/github/amgadfahmi/js-binarysearch?branch=master)
+Master 1.0.2: [![Build Status](https://travis-ci.org/amgadfahmi/js-binarysearch.svg?branch=master)](https://travis-ci.org/amgadfahmi/js-binarysearch)&nbsp;[![Coverage Status](https://coveralls.io/repos/github/amgadfahmi/js-binarysearch/badge.svg?branch=master)](https://coveralls.io/github/amgadfahmi/js-binarysearch?branch=master)
 
 Binary search algorithm implementation in Javascript without any dependency.
 
