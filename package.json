@@ -44,5 +44,15 @@
     "phantomjs-prebuilt": "^2.1.7",
     "requirejs": "^2.2.0",
     "time-grunt": "^0.3.2"
-  }
+  },
+  "keywords": [
+    "binary",
+    "fast",
+    "html",
+    "javascript",
+    "js",
+    "linear",
+    "performance",
+    "search"
+  ]
 }
