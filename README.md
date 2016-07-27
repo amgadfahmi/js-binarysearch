@@ -60,6 +60,16 @@ The search function has 2 overloads:
 ```javascript
 new BS(arrObj).search('20380a36-8777-43f7-a79e-65bdb53f4621', 'guid');
 ```
+3. Value and key in case of the object with custom condition as following:
+```javascript
+function searchCustomIterator(item, target) {
+  return (target >= item.min && target <= item.max)? 0: target - item.min; // res>0 || res<0
+}
+var arrObj = [{id: '1',min:1,max:6},{id:'2',min:5,max:6},{id:'3',min:7,max:9},{id:'4',min:10,max: 12}];
+
+new BS(arrObj).search(5, searchCustomIterator); // {id:'2',min:5,max:6}
+```
+
 ## Sorting 
 Now you can sort the array in chaining mechanism. 
 ```javascript
