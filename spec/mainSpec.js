@@ -81,5 +81,25 @@ define(['BS'], function(BS) {
         });
     });
 
+    describe("Search", function() {
+        it("search by custom-iterator", function() {
+          function searchCustomIterator(item, target) {
+            if (target >= item.min && target <= item.max) {
+              return 0; // This is the item we want to find
+            }
+
+            return target - item.min; // res>0 || res<0
+          }
+          var arr = [
+            {id: 33, name: 'Jasmin', min: 1, max: 6},
+            {id: 12, name: 'David', min: 5, max: 6},
+            {id: 7, name: 'Amgad', min: 7, max: 9},
+            {id: 56, name: 'Katya', min: 10, max: 12}
+          ];
+            var bs = new BS(arr).sort('min').search(5, searchCustomIterator);
+            expect(bs).toEqual({id: 12, name: 'David', min: 5, max: 6});
+        });
+    });
+
 });
 console.log('Test ended ...');

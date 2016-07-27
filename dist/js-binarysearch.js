@@ -1,5 +1,5 @@
 /*! js-binarysearch - v1.0.2
- *  Release on: 2016-05-29
+ *  Release on: 2016-07-27
  *  Copyright (c) 2016 Amgad Fahmi
  *  Licensed MIT */
 (function(root, factory) {
@@ -31,6 +31,8 @@ var BS = function(array) {
 BS.prototype.search = function(target, key) {
     if (key && typeof key === 'string') {
         return this.searchObj(target, key);
+    } else if (typeof key === 'function') {
+        return this.searchCustom(target, key);
     } else if (typeof target === 'number') {
         return this.searchNum(target);
     } else if (typeof target === 'string') {
@@ -87,6 +89,26 @@ BS.prototype.searchObj = function(target, key) {
     }
 };
 
+/*
+* @param iterator(item, target) => (1 || 0 || -1)
+*/
+BS.prototype.searchCustom = function(target, iterator) {
+    var min = 0,
+        max = this.internalArray.length - 1,
+        temp, mid;
+    while (min <= max) {
+        mid = Math.round(min + (max - min) / 2);
+        temp = iterator(this.internalArray[mid], target);
+        if (temp === 0) { // temp match to target
+            return this.internalArray[mid];
+        } else if (temp > 0) {
+            min = mid + 1;
+        } else {
+            max = mid - 1;
+        }
+    }
+};
+
 BS.prototype.sort = function(key) {
     if (this.internalArray.length <= 1) {
         return;
@@ -123,5 +145,6 @@ BS.prototype.sortNum = function() {
         return a - b;
     });
 };
+
 return BS;
 }));
